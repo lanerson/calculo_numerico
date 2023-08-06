@@ -26,7 +26,6 @@ def plot_graphs(a, b, c=1000):
     plt.ylabel('y')
     plt.show()
 # plot_graphs(-10,10)
-# achei 3.563 para x E [3,4]
 
 
 # vou usar isso em todas
@@ -34,6 +33,8 @@ n = 3
 x0 = 3
 
 # método ponto-fixo
+
+# podem haver outras
 
 
 def g1(x):
@@ -44,10 +45,10 @@ def pf(x, n):
     while (n > 0):
         x = g1(x)
         n -= 1
-    return round(x,4)
+    return round(x, 4)
 
 
-print(pf(x0, n))
+x_pf = pf(x0, n)
 # 3.1622
 
 # newton-raphson
@@ -64,7 +65,7 @@ def newton(x, n):
     return round(x, 4)
 
 
-print(newton(3, n))
+x_newton = newton(3, n)
 # achei 3.7929
 
 # método da secante
@@ -78,5 +79,17 @@ def secante(x0, x1, n):
         return round(x2, 4)
 
 
-print(secante(4, 3, n))
+x_secante = secante(4, 3, n)
 # achei 3.5497
+
+x_base = newton(3, 10)
+
+# vou usar esse valor como base, pra calcular os erros
+erro_abs = []
+erro_abs.append(round(abs(x_base - x_pf), 4))
+erro_abs.append(round(abs(x_base - x_newton), 4))
+erro_abs.append(round(abs(x_base - x_secante), 4))
+
+erro_rel = list(map(lambda x: str(100*round(x/x_base, 4))+'%', erro_abs))
+print(erro_abs)
+print(erro_rel)
