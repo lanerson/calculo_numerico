@@ -80,7 +80,7 @@ def secante(x0, x1, n):
 
 
 x_secante = secante(3, 4, n)
-# achei 3.5497
+# achei 3.5613
 
 x_base = newton(3, 10)
 
@@ -93,4 +93,3 @@ erro_abs.append(round(abs(x_base - x_secante), 4))
 erro_rel = list(map(lambda x: str(100*round(x/x_base, 4))+'%', erro_abs))
 print(erro_abs)
 print(erro_rel)
-
