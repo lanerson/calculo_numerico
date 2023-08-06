@@ -11,14 +11,12 @@ def pit(x, y):
     return f
 
 
-tupla = (1, 2, 3, 4)
-
-
 def norma(lista):
     acc = 0
     for num in lista:
         acc = pit(num, acc)
 
     return acc
+
 
 print(norma([3, 4, 12]))
