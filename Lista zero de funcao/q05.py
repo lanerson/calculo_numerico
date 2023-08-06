@@ -27,4 +27,4 @@ def ponto_fixo(x):
 
 
 # print(ponto_fixo(0))
-
+# 0.2951

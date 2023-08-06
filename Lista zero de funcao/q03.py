@@ -10,4 +10,4 @@ x0 = 10 #não foi dado na questão
 x1 = x0
 for i in range(n):
     x1 = x1 - (f(x1)-30)/_f(x1)
-    print(f"iteração {i+1} x = {round(x1,5)}\n {f(x1)} erro = {(1-abs(f(x1)/30)):.5%}")
+    print(f"iteração {i+1}, x = {round(x1,3)}\n f(x) = {round(f(x1),3)}, erro = {(1-abs(f(x1)/30)):.3%}")

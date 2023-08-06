@@ -29,9 +29,11 @@ def newton(x0, f, _f):
     if (abs(x1-x0) < erro or abs(f(x1)) < erro):
         return round(x1, n)
     else:
-        return newton(x1)
+        return newton(x1, f, _f)
 
-#só pra ver mais ou menos onde a função zera
+
+# só pra ver mais ou menos onde a função zera
 # plot_graph(0,5,f)
-# print(f(0))
-# print(newton(1))
+# print(f(1))
+# print(newton(0.1, f, _f))
+# achei 0.1449
