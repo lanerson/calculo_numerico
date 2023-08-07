@@ -20,6 +20,8 @@ def f2(y):
     return 400*(3+y)
 
 
+# método carteado que ele diz ser "método gráfico"
+"""
 def grafico(a, b, c=1000):
     x = np.linspace(a, b, c)
     y = f(x)
@@ -34,9 +36,22 @@ def grafico(a, b, c=1000):
             raiz = x[i]
             raizes.append(round(raiz, 3))
     print(raizes)
-
-
 grafico(-10, 10)
+"""
+
+
+def metodo_grafico(a, b, c=1000):
+    x = np.linspace(a, b, c)
+    y_1 = f1(x)
+    y_2 = f2(x)
+    plt.plot(x, y_1, label="f1(x)")
+    plt.plot(x, y_2, label="f2(x)")
+    plt.grid(True)
+    plt.show()
+
+
+metodo_grafico(-5, 2)
+
 # [-6.016, -4.255, 0.0, 1.514]
 print(f(-4.255))
 print(f(1.514))
