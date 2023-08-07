@@ -24,18 +24,13 @@ def f2(x):
 
 def grafico(a, b, c=1000):
     x = np.linspace(a, b, c)
-    y = f(x)
-    raizes = []
-    raiz = 0
-    for i in range(len(x)-1):
-        if (y[i]*y[i+1] < 0):
-            raiz = (x[i]*abs(f(x[i+1])) + x[i+1]*abs(f(x[i]))) / \
-                (abs(f(x[i+1])) + abs(f(x[i])))
-            raizes.append(round(raiz, 3))
-        elif (y[i] == 0):
-            raiz = x[i]
-            raizes.append(round(raiz, 3))
-    print(raizes)
+    x = np.linspace(a, b, c)
+    y_1 = f1(x)
+    y_2 = f2(x)
+    plt.plot(x, y_1, label="f1(x)")
+    plt.plot(x, y_2, label="f2(x)")
+    plt.grid(True)
+    plt.show()
 
 
 grafico(-10, 10)
