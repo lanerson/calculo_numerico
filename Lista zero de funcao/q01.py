@@ -76,7 +76,7 @@ def bisec(a, b, f, k=1):
 
 
 def fPosition(a, b, f, k=1):
-    c = (a*abs(f(a))+b*abs(f(b)))/(abs(f(a)+abs(f(b))))
+    c = (a*abs(f(b))+b*abs(f(a)))/(abs(f(a)+abs(f(b))))
     if (abs(f(c)) < erro):
         print("execução nº {}".format(k))
         return round(c, n)
