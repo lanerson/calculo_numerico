@@ -24,7 +24,7 @@ def f2(y):
 """
 def grafico(a, b, c=1000):
     x = np.linspace(a, b, c)
-    y = f(x)
+    y = f(x) 
     raizes = []
     raiz = 0
     for i in range(len(x)-1):
@@ -36,6 +36,8 @@ def grafico(a, b, c=1000):
             raiz = x[i]
             raizes.append(round(raiz, 3))
     print(raizes)
+
+
 grafico(-10, 10)
 """
 
@@ -50,11 +52,10 @@ def metodo_grafico(a, b, c=1000):
     plt.show()
 
 
-metodo_grafico(-5, 2)
+# metodo_grafico(-5, 2)
 
 # [-6.016, -4.255, 0.0, 1.514]
-print(f(-4.255))
-print(f(1.514))
+
 
 # achei 1.514
 
@@ -76,16 +77,17 @@ def bisec(a, b, f, k=1):
 
 
 def fPosition(a, b, f, k=1):
-    c = (a*abs(f(a))+b*abs(f(b)))/(abs(f(a)+abs(f(b))))
+    c = (a*abs(f(b))+b*abs(f(a)))/(abs(f(a))+abs(f(b)))
+    print("execução nº {}, x = {}".format(k, c))
     if (abs(f(c)) < erro):
-        print("execução nº {}".format(k))
         return round(c, n)
     if (f(a)*f(c) < 0):
-        return bisec(a, c, f, k+1)
+        return fPosition(a, c, f, k+1)
     elif (f(b)*f(c) < 0):
-        return bisec(c, b, f, k+1)
+        return fPosition(c, b, f, k+1)
     else:
         return "não foi possível encontrar raiz no intervalo"
 
-# print(fPosition(0.5,2.5,f))
+
+print(fPosition(0.5, 2.5, f))
 # deu certo na 9º execução x = 1.516
