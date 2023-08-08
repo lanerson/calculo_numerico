@@ -48,7 +48,8 @@ def pf(x, n):
     return round(x, 4)
 
 
-x_pf = pf(x0, n)
+x_pf = pf(x0, n) # x0 = 3 n = 3
+
 # 3.1622
 
 # newton-raphson
@@ -82,7 +83,7 @@ def secante(x0, x1, n):
 x_secante = secante(3, 4, n)
 # achei 3.5613
 
-x_base = newton(3, 10)
+x_base = newton(3, 20)
 
 # vou usar esse valor como base, pra calcular os erros
 erro_abs = []
@@ -93,3 +94,6 @@ erro_abs.append(round(abs(x_base - x_secante), 4))
 erro_rel = list(map(lambda x: str(100*round(x/x_base, 4))+'%', erro_abs))
 print(erro_abs)
 print(erro_rel)
+#print(f"teste {round(abs(x_base - x_secante), 4)/x_base:.2%}")
+# print(f"x base = {x_base}")
+# print(f"f(x) = {f(x_base)}")

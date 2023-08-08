@@ -1,32 +1,54 @@
-import matplotlib.pyplot as plt
+import math
 import numpy as np
 
-erro = 0.01
-n = 3
+R = 3
+
+# declaração da função dada
 
 
-def f(y):
-    return 1 - 400 * (3 + y) / (9.81 * (3 * y + y * y / 2) ** 3)
+def f(h):
+    return 30 - math.pi*h**2*(3*R-h)/3
+
+# derivada de f
 
 
-def g(y):
-    return 0
+def dfdh(h):
+    return -math.pi*h*(2*R-h)
 
 
-def plot_graphs():
-    y = np.linspace(0.5, 3, 1000)  # Intervalo de y de 0.5 a 3 com 1000 pontos
-    y_y = f(y)
-    # y_0 = g(y)
-    # plt.plot(y, y_0, label='g(y)')
-    plt.plot(y, y_y, label='f(y)')  # Adiciona o gráfico de f(y)
-    plt.xlabel('y')
-    plt.ylabel('f(y)')
-    plt.legend()
-    plt.grid(True)
-    plt.title('Gráfico de f(y)')
-    plt.show()
+# chute inicial
+initialGuess = 2
+
+# tolerância e máximas iterações
+tol = 0.01
+maxIter = 3
+
+# método de Newton-Raphson
 
 
-plot_graphs()
+def newtonRaphson(f, dfdh, h0, tol, maxIter):
 
-# else return;
+    i = 0
+    h_k = [h0]
+    y_k = [f(h0)]
+    
+    while (abs(f(h_k[-1])) > tol or i < maxIter):
+        print("está rodando")
+        next_h = h_k[-1] - f(h_k[-1])/dfdh(h_k[-1])
+
+        h_k.append(next_h)
+        y_k.append(f(next_h))
+        i+=1
+    erroRel = (next_h - h_k[-1])/h_k[-1]
+
+    print('O erro relativo da {}-ésima iteração é {}'.format(i+1, erroRel))
+
+    # print(h_k);
+    # print(y_k);
+
+    return h_k[-1]
+
+
+root = newtonRaphson(f, dfdh, initialGuess, tol, maxIter)
+
+print('Método de Newton-Raphson: a raiz vale ' + str(root))
