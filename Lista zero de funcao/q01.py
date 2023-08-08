@@ -1,6 +1,4 @@
-"""
 
-"""
 import matplotlib.pylab as plt
 import numpy as np
 
@@ -29,7 +27,7 @@ def grafico(a, b, c=1000):
     raiz = 0
     for i in range(len(x)-1):
         if (y[i]*y[i+1] < 0):
-            raiz = (x[i]*abs(f(x[i+1])) + x[i+1]*abs(f(x[i]))) / \
+            raiz = (x[i]*abs(f(x[i+1])) + x[i+1]*abs(f(x[i]))) /
                 (abs(f(x[i+1])) + abs(f(x[i])))
             raizes.append(round(raiz, 3))
         elif (y[i] == 0):
@@ -79,7 +77,7 @@ def bisec(a, b, f, k=1):
 def fPosition(a, b, f, k=1):
     c = (a*abs(f(b))+b*abs(f(a)))/(abs(f(a))+abs(f(b)))
     print("execução nº {}, x = {}".format(k, c))
-    if (abs(f(c)) < erro):
+    if (abs(f(c)) < erro or k==10):
         return round(c, n)
     if (f(a)*f(c) < 0):
         return fPosition(a, c, f, k+1)
