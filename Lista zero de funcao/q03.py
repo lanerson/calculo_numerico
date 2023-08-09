@@ -1,4 +1,5 @@
-from numpy import pi
+from numpy import pi,linspace
+import matplotlib.pyplot as plt
 R = 3
 n = 3
 
@@ -9,7 +10,6 @@ def f(h):
 
 def _f(h):
     return -2*pi*R*h-pi*h**2
-
 
 x0 = 1  # não foi dado na questão
 x1 = x0
@@ -22,8 +22,13 @@ def newton(x0, n, k=1):
     while k < n:
         return newton(x1, n, k+1)
     return x1
-
-
+""" Só pra testar
+x = linspace(0,30)
+y = f(x)
+plt.plot(x,y)
+plt.grid(True)
+plt.show()
+"""
 newton(x0, 3)
 
 # print(f(x_base))
