@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas
 e = 0.9
 erro = 0.0001
 
@@ -29,3 +30,5 @@ _lista = []
 for num in lista:
     _lista.append(newton(num))
 
+df = pandas.DataFrame(lista, _lista)
+print(df)
