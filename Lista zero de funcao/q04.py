@@ -35,5 +35,5 @@ def newton(x0, f, _f):
 # só pra ver mais ou menos onde a função zera
 # plot_graph(0,5,f)
 # print(f(1))
-# print(newton(0.1, f, _f))
+print(newton(0.1, f, _f))
 # achei 0.1449

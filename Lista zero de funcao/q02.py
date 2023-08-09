@@ -5,8 +5,6 @@ import numpy as np
 def f(x):
     return 2*x**3 - 11.7*x**2 + 17.7*x - 5
 
-# metodo gráfico
-
 
 def f1(x):
     return 2*x**3 - 11.7*x**2
@@ -24,8 +22,11 @@ def plot_graphs(a, b, c=1000):
     plt.plot(x, y2, label='f2(x)')
     plt.xlabel('x')
     plt.ylabel('y')
+    plt.grid(True)
     plt.show()
 # plot_graphs(-10,10)
+
+# 0.3651 , 1.9217 , 3.563
 
 
 # vou usar isso em todas
@@ -48,13 +49,11 @@ def pf(x, n):
     return round(x, 4)
 
 
-x_pf = pf(x0, n) # x0 = 3 n = 3
-
+x_pf = pf(x0, n)  # x0 = 3 n = 3
+print(x_pf) # se eu usar outra função talvez fique mais preciso
 # 3.1622
 
 # newton-raphson
-
-
 def _f(x):
     return 6*x**2 - 23.4*x + 17.7
 
@@ -94,6 +93,6 @@ erro_abs.append(round(abs(x_base - x_secante), 4))
 erro_rel = list(map(lambda x: str(100*round(x/x_base, 4))+'%', erro_abs))
 print(erro_abs)
 print(erro_rel)
-#print(f"teste {round(abs(x_base - x_secante), 4)/x_base:.2%}")
+# print(f"teste {round(abs(x_base - x_secante), 4)/x_base:.2%}")
 # print(f"x base = {x_base}")
 # print(f"f(x) = {f(x_base)}")

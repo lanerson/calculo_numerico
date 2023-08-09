@@ -1,4 +1,4 @@
-from numpy import sqrt, linspace
+from numpy import sqrt, linspace, log10 as log
 import matplotlib.pylab as plt
 erro = 0.000005
 
@@ -29,5 +29,6 @@ def bisec(a, b):
         return "vish..."
 
 
-print(bisec(a, b))
+# print(bisec(a, b))
 
+print(4*log(50000*sqrt(0.0052265))- 0.4-1/(sqrt(0.0052265)))
