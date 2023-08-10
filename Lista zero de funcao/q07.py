@@ -30,5 +30,6 @@ _lista = []
 for num in lista:
     _lista.append(newton(num))
 
-df = pandas.DataFrame(lista, _lista)
+df = pandas.DataFrame({"x":lista, "y":_lista})
 print(df)
+

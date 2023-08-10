@@ -4,10 +4,15 @@ import matplotlib.pyplot as plt
 
 def f(x):
     return sin(x)
-
-
-def df(x, dx=0.000000001):
-    return (f(x+dx)-f(x))/dx
+# se vc quiser o valor
+def _f(x, dx = 0.000000001):
+    return (f(x+dx) - f(x))/dx
+# se vc quiser a função
+def df(f, dx=0.000000001):
+    def _f(x):
+        return (f(x+dx) - f(x))/dx
+    return _f
+y_linha = df(f)
 
 
 print(f(pi/3))
