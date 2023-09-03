@@ -18,7 +18,7 @@ def SubRet(A,b):
     for i in reversed(range(n)):
         x[i] = (b[i] - A[i,i+1:]@x[i+1:]) / A[i,i]
     return x
-
+# aquele que a gente já conhece com o pivotamento parcial
 def ElimGauss(mat,resul):
     A = np.copy(mat)
     b = np.copy(resul)
@@ -34,6 +34,10 @@ def ElimGauss(mat,resul):
             A[i,j:] -= m * A[j,j:]
             b[i] -= m * b[j]
 
+""" L é uma matriz triangular inferior e U é triangular superior
+é só lembrar daquelas paradas de algebra linear de operações elementares:
+    combinação linear, troca de linha e multiplicação por escalar
+"""
 def dec_LU(mat):
     U = np.copy(mat)
     n = len(U)
@@ -44,6 +48,7 @@ def dec_LU(mat):
             U[i,j:] -= m * U[j,j:]
             L[i,j] += m
     return L,U
+    
 """
 Aqui ela vai retornar na forma reduzida
 abaixo da diagonal principal vai ter L, na diagonal principal
@@ -67,11 +72,12 @@ def LDLT(A):
 supondo que a matriz A é simetrica e 
 positiva definida, ou seja, que, dado x no Rn
 x.T * A * x > 0
+nesse caso, a matriz pode ser escrita como A = L * L.T (L transposta)
 """
 def cholesky(A):
     L = np.copy(A)
     for k in range(n):
-        try:
+        try: # essa estrutura é só pra apontar o erro caso a matriz de entrada não seja positiva definida
             L[k,k] = np.sqrt(A[k,k]@A[k,k]-L[k,:k]@L[j,:j]) 
         except:
             print("essa matriz não é positiva definida")
