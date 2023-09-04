@@ -27,7 +27,7 @@ def ElimGauss(mat,resul):
         #Se eu tiver que pivotar parcialmente
         k = np.argmax(np.abs(A[j:,j])) + j
         if k != j:
-            A[k,:], A[j,:] = A[j,:], A[k,:]
+            A[k,:], A[j,:] = A[j,:], A[k,:].copy()
             b[j], b[k] = b[k], b[j]
         for i in range(j+1, n):
             m = A[i,j]/ A[j,j]
